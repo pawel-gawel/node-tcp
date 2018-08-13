@@ -9,7 +9,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "server": "node src/server/index.js",
+    "server:dev": "nodemon src/server/index.js",
+    "client": "nodemon src/client/index.js"
   },
   "author": "",
   "license": "ISC"

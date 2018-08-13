@@ -1,5 +1,5 @@
-const { config: { host, port } } = require('../package.json');
 const { createServer } = require('net');
+const { config: { host, port } } = require('../../package.json');
 
 const server = createServer((socket) => {
   socket.write('halo\r\n');
