@@ -1,3 +1,3 @@
 module.exports = function (data) {
-  console.log('Server: ' + data);
+  console.log(`[server]: ${data}`);
 }

@@ -1,8 +1,8 @@
-module.exports = (server) => () => {
+module.exports = (server) => (cb) => {
   server.getConnections((err, count) => {
     if (err) {
       throw Error(err);
     }
-    console.log('connections:', count);
+    cb(count);
   });
 }

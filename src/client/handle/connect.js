@@ -6,7 +6,7 @@ module.exports = (socket) => () => {
 }
 
 function writeHeader(socket) {
-  const { localAddress, remoteAddress } = socket;
-  console.log('Connected to', remoteAddress);
-  socket.write(`Hey! this is ${localAddress}`);
+  const { localAddress, localPort, remoteAddress, remotePort } = socket;
+  console.log(`Successfully connected to ${remoteAddress}:${remotePort} \n`);
+  socket.write(`Hey! this is ${localAddress}:${localPort}`);
 }

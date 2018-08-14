@@ -1,16 +1,36 @@
-module.exports = connect;
+const connectionsCount = require('../util/connections-count');
 
-function connect(socket) {
-  const { localAddress, localPort } = socket;
+module.exports = server => socket => {
+  const connections = connectionsCount(server);
+
+  socket.on('data', data(socket));
+  socket.on('close', close(socket, connections))
+  socket.on('error', console.error);
+
+  hello(socket, connections);
+  process.stdin.pipe(socket);
+}
+
+function hello(socket, connections) {
+  const { localAddress, localPort, remoteAddress, remotePort } = socket;
+
   socket.write(`Welcome to ${localAddress}:${localPort}`);
 
-  process.stdin.pipe(socket);
+  console.log(`\n> ${remoteAddress}:${remotePort} connected`);
+  connections(count => console.log(`> Connections: ${count}\n`));
+}
 
-  socket.on('data', (data) => {
+function data(socket) {
+  return function (data) {
     const { remoteAddress, remotePort } = socket;
     console.log(`[${remoteAddress}:${remotePort}]:`, data.toString());
-  });
+  }
+}
 
-  socket.on('error', console.error);
-  // socket.end();
+function close(socket, connections) {
+  return function (data) {
+    const { remoteAddress, remotePort } = socket;
+    console.log(`\n> ${remoteAddress}:${remotePort} closed connection`);
+    connections(count => console.log(`> Connections: ${count}\n`));
+  }
 }
