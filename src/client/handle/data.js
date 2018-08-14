@@ -1,4 +1,3 @@
-function(data) {
-  console.log('Received: ' + data);
-  client.destroy(); // kill client after server's response
+module.exports = function (data) {
+  console.log('Server: ' + data);
 }
