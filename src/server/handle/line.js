@@ -1,14 +1,15 @@
 const readline = require('readline');
 
 const terminal = require('../../terminal');
+const output = require('../output');
 
-module.exports = (socket) => (line) => {
+module.exports = (line) => {
   switch (line.trim()) {
     case 'hello':
       console.log('\rworld!');
       break;
     default:
-      socket.write(line);
+      output.write(line);
       readline.moveCursor(process.stdout, 0, -1);
       break;
   }

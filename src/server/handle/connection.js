@@ -1,7 +1,5 @@
 const data = require('./data');
 const close = require('./close');
-const line = require('./line');
-const terminal = require('../../terminal');
 const {
   connectionsCount,
   logConnections
@@ -19,7 +17,6 @@ function handle(socket, connections) {
   socket.on('data', data(socket));
   socket.on('close', close(socket, connections))
   socket.on('error', console.error);
-  terminal.on('line', line(socket));
 }
 
 function sayHello(socket, connections) {
