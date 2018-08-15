@@ -5,6 +5,7 @@ const terminal = require('../terminal');
 
 const server = createServer();
 
+terminal.setPrompt('# ');
 terminal.on('line', line);
 server.on('connection', connection(server));
 
