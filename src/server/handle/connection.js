@@ -4,7 +4,7 @@ const {
   connectionsCount,
   logConnections
 } = require('../util');
-const { register } = require('../sockets');
+const { register } = require('../output');
 
 module.exports = server => socket => {
   const connections = connectionsCount(server);

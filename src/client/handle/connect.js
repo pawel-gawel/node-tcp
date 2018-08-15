@@ -9,6 +9,5 @@ module.exports = (socket) => () => {
 
 function sayHello(socket) {
   const { localAddress, localPort, remoteAddress, remotePort } = socket;
-  socket.write(`Hey! this is ${localAddress}:${localPort}`);
   console.log(`Successfully connected to ${remoteAddress}:${remotePort} \n`);
 }

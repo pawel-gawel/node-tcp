@@ -1,7 +1,7 @@
 const readline = require('readline');
 
 const terminal = require('../../terminal');
-const output = require('../output');
+const { broadcast } = require('../output');
 
 module.exports = (line) => {
   switch (line.trim()) {
@@ -9,7 +9,7 @@ module.exports = (line) => {
       console.log('\rworld!');
       break;
     default:
-      output.write(line);
+      broadcast(line);
       readline.moveCursor(process.stdout, 0, -1);
       break;
   }
