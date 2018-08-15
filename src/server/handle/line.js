@@ -1,12 +1,12 @@
 const readline = require('readline');
 
 const terminal = require('../../terminal');
-const { broadcast } = require('../output');
+const { broadcast, log } = require('../output');
 
 module.exports = (line) => {
   switch (line.trim()) {
     case 'hello':
-      console.log('\rworld!');
+      log('\rworld!');
       break;
     default:
       broadcast(line);

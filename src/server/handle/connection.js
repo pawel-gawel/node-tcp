@@ -4,7 +4,7 @@ const {
   connectionsCount,
   logConnections
 } = require('../util');
-const { register } = require('../output');
+const { register, log } = require('../output');
 
 module.exports = server => socket => {
   const connections = connectionsCount(server);
@@ -24,6 +24,6 @@ function sayHello(socket, connections) {
 
   socket.write(`Welcome to ${localAddress}:${localPort}`);
 
-  console.log(`\n> ${remoteAddress}:${remotePort} connected`);
+  log(`\n> ${remoteAddress}:${remotePort} connected`);
   logConnections(connections);
 }
