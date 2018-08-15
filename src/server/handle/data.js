@@ -1,4 +1,5 @@
 module.exports = socket => data => {
   const { remoteAddress, remotePort } = socket;
-  console.log(`[${remoteAddress}:${remotePort}]:`, data.toString());
+  console.log(`\r[${remoteAddress}:${remotePort}]:`, data.toString().trim());
+  //process.stdout.write('> ');
 }

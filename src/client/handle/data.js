@@ -1,3 +1,3 @@
 module.exports = function (data) {
-  console.log(`[server]: ${data}`);
+  console.log(`\r[server]: ${data.toString().trim()}`);
 }

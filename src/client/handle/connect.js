@@ -1,8 +1,10 @@
+const terminal = require('../../terminal');
+
 module.exports = (socket) => () => {
   const { write } = socket;
 
   writeHeader(socket);
-  process.stdin.pipe(socket);
+  terminal.on('line', terminal.handleLine(socket));
 }
 
 function writeHeader(socket) {
