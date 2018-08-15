@@ -10,6 +10,5 @@ socket.on('error', console.error)
 socket.on('data', data);
 socket.on('close', () => {
   console.log('closing');
-  socket.end();
+  process.exit(0);
 });
-socket.on('end', end);
