@@ -1,7 +1,7 @@
 const connect = require('./connect');
 const data = require('./data');
-const end = require('./end');
+const close = require('./close');
 
 module.exports = {
-  connect, data, end
+  connect, data, close
 }

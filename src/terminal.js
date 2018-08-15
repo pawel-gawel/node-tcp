@@ -6,8 +6,8 @@ const terminal = readline.createInterface({
   prompt: '> '
 });
 
-terminal.handleLine = (socket) => (line) => {
-  socket.write(line);
+terminal.defaultLineHandler = (stream) => (line) => {
+  stream.write(line);
   readline.moveCursor(process.stdout, 0, -1);
   terminal.prompt();
 }

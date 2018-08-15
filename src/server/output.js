@@ -9,7 +9,7 @@ const log = console.log;
 const register = (socket) => {
   const { remoteAddress, remotePort } = socket;
 
-  broadcast(`[${remoteAddress}:${remotePort}] New client!\n`);
+  broadcast(`[${remoteAddress}:${remotePort}] Connected\n`);
   output.pipe(socket);
 }
 

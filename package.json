@@ -8,10 +8,10 @@
     "port": 2444
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node src/server/index.js",
-    "server:dev": "nodemon src/server/index.js",
-    "client": "nodemon src/client/index.js"
+    "server": "node src/server",
+    "server:dev": "nodemon src/server",
+    "client": "node src/client",
+    "client:dev": "nodemon src/client"
   },
   "author": "",
   "license": "ISC"

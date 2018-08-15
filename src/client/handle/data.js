@@ -6,6 +6,5 @@ module.exports = function (data) {
     .concat(message.startsWith('[') ? '' : '[server]: ')
     .concat(message);
   console.log(message)
-  //console.log(`\r[server]: ${data.toString().trim()}`);
   terminal.prompt();
 }

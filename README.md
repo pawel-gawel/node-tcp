@@ -1,20 +1,24 @@
 # TCP in nodejs
 
-Program consists of client and server.
+> Communication between multiple clients (with server relaying messages)
 
-Open two terminals and run
+Program consists of two parts: client and server.
 
-```
-node src/server
-```
-
-then in the other one go with
+Open a terminal and run
 
 ```
-node src/client
+npm run server
 ```
 
-Type something in either of terminals and hit Enter, observe two way communication between the client and the server.
+In the next window go with
 
-Also try to open few more clients in new termina windows.
+```
+npm run client
+```
+
+Type something in either of the terminals and hit Enter. Observe two way communication between the client and the server.
+
+Now run at least one more client. Send some messages from either of the terminals. Observe how server broadcasts messages to all of the connected clients.
+
+> It does that using single PassThrough stream which is piped to every connected socket
 

@@ -1,14 +1,11 @@
 const { Socket } = require('net');
 const { config: { host, port } } = require('../../package.json');
-const { connect, data, end } = require('./handle');
+const { connect, data, close } = require('./handle');
 
 const socket = new Socket();
 
-socket.connect(port, 'localhost', connect(socket));
+socket.connect(port, host, connect(socket));
 
-socket.on('error', console.error)
 socket.on('data', data);
-socket.on('close', () => {
-  console.log('closing');
-  process.exit(0);
-});
+socket.on('close', close);
+socket.on('error', console.error);
