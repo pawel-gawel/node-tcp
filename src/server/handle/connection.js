@@ -1,5 +1,3 @@
-const { Transform } = require('stream');
-
 const data = require('./data');
 const close = require('./close');
 const line = require('./line');
@@ -8,10 +6,11 @@ const {
   connectionsCount,
   logConnections
 } = require('../util');
+const { register } = require('../sockets');
 
 module.exports = server => socket => {
   const connections = connectionsCount(server);
-
+  register(socket);
   handle(socket, connections);
   sayHello(socket, connections);
 }
