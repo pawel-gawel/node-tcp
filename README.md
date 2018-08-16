@@ -2,6 +2,8 @@
 
 > Communication between multiple clients (with server relaying messages)
 
+![](example.gif)
+
 Program consists of two parts: client and server.
 
 Open a terminal and run
